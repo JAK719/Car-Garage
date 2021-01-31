@@ -44,14 +44,44 @@ namespace CarGarage
 
         }
 
+
         public int Accelerate()
         {
+            if(Speed <= 90 && Make != "Ferrari")
+            {
+                return Speed += 10;
+            }
+            else if(Speed <= 80 && Make == "Ferrari")
+            {
+                return Speed += 20;
+            }
 
-            Speed = Speed + 10;
-            return Speed;
-          
+            else
+            {
+                return Speed;
+            }
+
         }
 
+        public int Brake()
+        {
+            if(Speed >= 7 && AutoBrakeActive == false)
+            {
+                return Speed -= 7;
+            }
+            else if(AutoBrakeActive == true)
+            {
+               return Speed /= 2;
 
+            }
+            else
+            {
+                return Speed -= Speed;
+            }
+                   
+            
+        }
+
+      
     }
 }
